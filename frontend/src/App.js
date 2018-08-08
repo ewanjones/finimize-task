@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { calculate } from "./API"
-import InputGraphSection from './Components/InputGraphSection'
+import InputGraphContainer from './Components/InputGraphContainer'
 import "./App.css"
 
 class App extends Component {
@@ -28,7 +28,7 @@ class App extends Component {
                     {loading ?
                         'Loading...'
                     :
-					 	<InputGraphSection {...{result}}/>
+					 	<InputGraphContainer />
                     }
 			</div>
 		)
