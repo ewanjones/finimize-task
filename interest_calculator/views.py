@@ -34,13 +34,16 @@ def calculate(request):
     interest = params.get('interest', 0)
     interval = params.get('interval', 'monthly')
 
+    try:
+        initial = float(initial)
+        monthly = float(monthly)
+        interest = percent_to_decimal(float(interest))
+    except ValueError:
+        return HttpResponseBadRequest('Parameters must be integers or floats')
+            
     is_valid = lambda param: float(param) > 0
     if not is_valid(interest) or not any(is_valid(param) for param in [initial, monthly]):
         return HttpResponseBadRequest('Required parameters are not provided')
-
-    initial = float(initial)
-    monthly = float(monthly)
-    interest = percent_to_decimal(float(interest))
 
     forecast = calculate_forecast(initial, monthly, interest, interval)
 
