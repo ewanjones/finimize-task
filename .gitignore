@@ -6,3 +6,6 @@ static
 .coverage
 schema.json
 .idea
+
+*.swp
+*.swo
