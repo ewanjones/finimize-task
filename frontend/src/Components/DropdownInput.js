@@ -18,24 +18,9 @@ const intervalOptions = [
 ]
 
 export default class DropdownInput extends Component {
-	constructor(props) {
-		super(props)
-
-		this.state = {
-			hasFocus: false,
-			value: props.defaultValue
-		}
-	}
-
 	handleChange(e) {
 		const value = e.target.value
 		this.props.onChange(value)
-	}
-
-	handleFocus(e) {
-		this.setState({
-			hasFocus: true
-		})
 	}
 
 	render() {
@@ -46,7 +31,6 @@ export default class DropdownInput extends Component {
 				<select
 					value={value}
 					onChange={this.handleChange.bind(this)}
-					onFocus={this.handleFocus.bind(this)}
                 >
                     {intervalOptions.map(interval => (                        
                         <option
@@ -63,5 +47,6 @@ export default class DropdownInput extends Component {
 }
 
 DropdownInput.propTypes = {
-	defaultValue: PropTypes.number
+	value: PropTypes.number,
+    onChange: PropTypes.func
 }
