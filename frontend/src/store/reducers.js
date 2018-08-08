@@ -9,7 +9,8 @@ let initialState = {
     input: {
         initial: 0,
         interest: 0,
-    }
+    },
+    results: []
 }
 
 const reducer = (state = initialState, action) => {

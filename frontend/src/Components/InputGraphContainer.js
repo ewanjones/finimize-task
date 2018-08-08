@@ -12,15 +12,21 @@ import {
 class InputGraphContainer extends Component {
     render() {
         return (
-            <InputGraphSection />
+            <InputGraphSection {...this.props} />
         )
     }
 }
 
 const mapStateToProps = state => ({
+    initial: state.input.initial,
+    interest: state.input.interest,
+    results: state.input.results,
 })
 
 const mapDispatchToProps = dispatch => ({
+    setInitial: value => dispatch(setInitial(value)),
+    setInterest: value => dispatch(setInterest(value)),
+    getResults: () => dispatch(getResults())
 })
 
 export default connect(
