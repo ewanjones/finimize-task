@@ -32,6 +32,7 @@ def calculate(request):
     initial = params.get('initial', 0)
     monthly = params.get('monthly', 0)
     interest = params.get('interest', 0)
+    interval = params.get('interval', 'monthly')
 
     is_valid = lambda param: float(param) > 0
     if not is_valid(interest) or not any(is_valid(param) for param in [initial, monthly]):
@@ -41,7 +42,8 @@ def calculate(request):
     monthly = float(monthly)
     interest = percent_to_decimal(float(interest))
 
-    forecast = calculate_forecast(iniitial, monthly, interest)
+    forecast = calculate_forecast(initial, monthly, interest, interval)
+
     return JsonResponse({
         'forecast': forecast
     })
@@ -51,16 +53,24 @@ def percent_to_decimal(percent):
     return percent / 100
 
     
-def calculate_forecast(initial, monthly, interest):
+def calculate_forecast(initial, monthly, interest, interval):
     #  For a complex algorithm, this function would be located in a separate file(s)
+
     amount = initial
+    interval_mapping = {
+        'monthly': 1,
+        'quarterly': 3,
+        'annually': 12
+    }
     forecast = [{
         'month': 0, 
         'amount': initial,
     }]
 
     for month in range(1, MONTHS_FORECAST + 1):
-        amount = amount * (1 + interest)
+        if month % interval_mapping[interval] == 0:
+            amount = amount * (1 + interest)
+
         amount += monthly
 
         forecast.append({

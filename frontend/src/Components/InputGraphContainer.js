@@ -26,7 +26,7 @@ const mapStateToProps = state => ({
     monthly: String(state.input.monthly),
     interest: String(state.input.interest),
     interval: state.input.interval,
-    results: state.results.items,
+    results: state.results,
 })
 
 const mapDispatchToProps = dispatch => ({

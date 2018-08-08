@@ -48,6 +48,7 @@ class CalculateTestCase(TestCase):
             self.assertEqual(len(body['forecast']), 601)
             self.assertEqual(final_amount, test['final'])
 
+
     def test_invalid_parameters(self):
         tests = [
             {
@@ -80,3 +81,4 @@ class CalculateTestCase(TestCase):
             )
             
             self.assertEqual(response.status_code, 400)
+
