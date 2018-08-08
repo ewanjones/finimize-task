@@ -50,6 +50,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'interest_calculator.urls'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+    }
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
