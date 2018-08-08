@@ -7,8 +7,10 @@ import {
     setInitial,
     setMonthly,
     setInterest,
+    setInterval,
     getResults
 } from '../store/actions'
+
 
 class InputGraphContainer extends Component {
     render() {
@@ -18,10 +20,12 @@ class InputGraphContainer extends Component {
     }
 }
 
+
 const mapStateToProps = state => ({
     initial: String(state.input.initial),
     monthly: String(state.input.monthly),
     interest: String(state.input.interest),
+    interval: state.input.interval,
     results: state.results.items,
 })
 
@@ -36,6 +40,10 @@ const mapDispatchToProps = dispatch => ({
     },
     setInterest: value => {
         dispatch(setInterest(value))
+        dispatch(getResults())
+    },
+    setInterval: value => {
+        dispatch(setInterval(value))
         dispatch(getResults())
     },
 })

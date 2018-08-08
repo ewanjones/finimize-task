@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import CurrencyInput from "./CurrencyInput"
 import SliderInput from "./SliderInput"
+import DropdownInput from "./DropdownInput"
 import DisplayGraph from "./DisplayGraph"
 import "./InputGraphSection.css"
 
@@ -10,10 +11,12 @@ export default class InputGraphSection extends Component {
           initial,
           monthly,
           interest,
+          interval,
           results,
           setInitial,
           setMonthly,
           setInterest,
+          setInterval,
           getResults,
       } = this.props
 
@@ -39,7 +42,16 @@ export default class InputGraphSection extends Component {
             value={interest} 
             onChange={setInterest}
           />
+
+          <p className="input-label">
+            How regularly will interested be paid?
+          </p>
+          <DropdownInput
+            value={interval} 
+            onChange={setInterval}
+          />
         </div>
+
         <div className="financial-display">
           {/*We have included some sample data here, you will need to replace this
             with your own. Feel free to change the data structure if you wish.*/}

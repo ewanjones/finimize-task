@@ -2,6 +2,7 @@ import {
     SET_INITIAL,
     SET_MONTHLY,
     SET_INTEREST,
+    SET_INTERVAL,
     GET_RESULTS
 } from './constants'
 
@@ -11,11 +12,9 @@ let initialState = {
         initial: "0",
         monthly: "0",
         interest: "0",
+        interval: "monthly",
     },
-    results: {
-        status: null,
-        items: []
-    }
+    results: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -44,13 +43,18 @@ const reducer = (state = initialState, action) => {
                     interest: action.value
                 }
             }
+        case SET_INTERVAL: 
+            return {
+                ...state,
+                input: {
+                    ...state.input,
+                    interval: action.value
+                }
+            }
         case GET_RESULTS: 
             return {
                 ...state,
-                results: {
-                    status: action.status,
-                    items: action.value
-                }
+                results: action.value
             }
         default:
           return state
