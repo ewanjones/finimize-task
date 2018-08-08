@@ -1,3 +1,5 @@
+import { calculate } from '../API'
+
 import {
     SET_INITIAL,
     SET_INTEREST,
@@ -19,6 +21,21 @@ export const setInterest = (value) => {
     }
 }
 
-export const getResults = () => {
-    return
+export const getResults = () => (dispatch, getState) => {
+    let initial = getState().input.initial
+    let interest = getState().input.interest
+
+    console.log('calculating..')
+
+    return calculate(initial, interest)
+        .then(response => {
+            return response.data.forecast
+        })
+        .then(forecast => {
+            dispatch({
+                type: GET_RESULTS,
+                status: 'success',
+                value: forecast
+            })
+        })
 }

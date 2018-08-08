@@ -18,15 +18,20 @@ class InputGraphContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-    initial: state.input.initial,
-    interest: state.input.interest,
-    results: state.input.results,
+    initial: String(state.input.initial),
+    interest: String(state.input.interest),
+    results: state.results.items,
 })
 
 const mapDispatchToProps = dispatch => ({
-    setInitial: value => dispatch(setInitial(value)),
-    setInterest: value => dispatch(setInterest(value)),
-    getResults: () => dispatch(getResults())
+    setInitial: value => {
+        dispatch(setInitial(value))
+        dispatch(getResults())
+    },
+    setInterest: value => {
+        dispatch(setInterest(value))
+        dispatch(getResults())
+    },
 })
 
 export default connect(

@@ -14,11 +14,14 @@ export default class SliderInput extends Component {
 
 	handleChange(e) {
 		const value = e.target.value
-		this.setState({value})
+		this.props.onChange(value)
 	}
 
 	render() {
-		const { value } = this.state
+		const {
+            value,
+            onChange
+        } = this.props
 
 		return (
 			<div className="fmz-slider">
