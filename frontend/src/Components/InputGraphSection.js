@@ -8,9 +8,11 @@ export default class InputGraphSection extends Component {
   render() {
       const {
           intial,
+          monthly,
           interest,
           results,
           setInitial,
+          setMonthly,
           setInterest,
           getResults,
       } = this.props
@@ -25,7 +27,10 @@ export default class InputGraphSection extends Component {
             />
 
           <p className="input-label">How much will you save each month?</p>
-          <CurrencyInput defaultValue={0} />
+          <CurrencyInput 
+                value={monthly} 
+                onChange={setMonthly}
+            />
 
           <p className="input-label">
             How much interest will you earn per year?

@@ -2,6 +2,7 @@ import { calculate } from '../API'
 
 import {
     SET_INITIAL,
+    SET_MONTHLY,
     SET_INTEREST,
     GET_RESULTS
 } from './constants'
@@ -10,6 +11,13 @@ import {
 export const setInitial = (value) => {
     return {
         type: SET_INITIAL,
+        value: value
+    }
+}
+
+export const setMonthly = (value) => {
+    return {
+        type: SET_MONTHLY,
         value: value
     }
 }

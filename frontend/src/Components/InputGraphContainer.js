@@ -5,6 +5,7 @@ import InputGraphSection from './InputGraphSection'
 
 import {
     setInitial,
+    setMonthly,
     setInterest,
     getResults
 } from '../store/actions'
@@ -19,6 +20,7 @@ class InputGraphContainer extends Component {
 
 const mapStateToProps = state => ({
     initial: String(state.input.initial),
+    monthly: String(state.input.monthly),
     interest: String(state.input.interest),
     results: state.results.items,
 })
@@ -26,6 +28,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     setInitial: value => {
         dispatch(setInitial(value))
+        dispatch(getResults())
+    },
+    setMonthly: value => {
+        dispatch(setMonthly(value))
         dispatch(getResults())
     },
     setInterest: value => {
