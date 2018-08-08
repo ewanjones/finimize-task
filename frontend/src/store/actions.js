@@ -31,14 +31,18 @@ export const setInterest = (value) => {
 
 export const getResults = () => (dispatch, getState) => {
     let initial = getState().input.initial
+    let monthly = getState().input.monthly
     let interest = getState().input.interest
 
-    console.log('calculating..')
+    if (![initial, monthly, interest].every(x => x)) {
+        return
+    }
 
-    return calculate(initial, interest)
+    return calculate(initial, monthly, interest)
         .then(response => {
-            return response.data.forecast
+            return response
         })
+        .then(response => response.data.forecast)
         .then(forecast => {
             dispatch({
                 type: GET_RESULTS,

@@ -5,16 +5,8 @@ import "./App.css"
 
 class App extends Component {
 	state = {
-		loading: true,
+		loading: false,
 		result: null
-	}
-
-	componentDidMount() {
-		calculate(1000, 1)
-			.then(r => this.setState({
-            	loading: false,
-                result: r.data.result
-			}))
 	}
 
 	render() {

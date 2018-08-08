@@ -7,7 +7,7 @@ import "./InputGraphSection.css"
 export default class InputGraphSection extends Component {
   render() {
       const {
-          intial,
+          initial,
           monthly,
           interest,
           results,
@@ -22,7 +22,7 @@ export default class InputGraphSection extends Component {
         <div className="financial-inputs">
           <p className="input-label">How much have you saved?</p>
           <CurrencyInput 
-                value={intial} 
+                value={initial} 
                 onChange={setInitial}
             />
 

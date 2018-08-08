@@ -8,9 +8,9 @@ import {
 
 let initialState = {
     input: {
-        initial: 0,
-        monthly: 0,
-        interest: 0,
+        initial: "0",
+        monthly: "0",
+        interest: "0",
     },
     results: {
         status: null,
