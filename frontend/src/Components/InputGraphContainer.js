@@ -22,9 +22,9 @@ class InputGraphContainer extends Component {
 
 
 const mapStateToProps = state => ({
-    initial: String(state.input.initial),
-    monthly: String(state.input.monthly),
-    interest: String(state.input.interest),
+    initial: state.input.initial,
+    monthly: state.input.monthly,
+    interest: state.input.interest,
     interval: state.input.interval,
     results: state.results,
 })

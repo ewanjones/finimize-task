@@ -17,7 +17,6 @@ export default class InputGraphSection extends Component {
           setMonthly,
           setInterest,
           setInterval,
-          getResults,
       } = this.props
 
     return (

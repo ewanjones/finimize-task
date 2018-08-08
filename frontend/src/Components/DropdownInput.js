@@ -47,6 +47,6 @@ export default class DropdownInput extends Component {
 }
 
 DropdownInput.propTypes = {
-	value: PropTypes.number,
+	value: PropTypes.string,
     onChange: PropTypes.func
 }

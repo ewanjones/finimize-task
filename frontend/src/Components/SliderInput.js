@@ -18,10 +18,7 @@ export default class SliderInput extends Component {
 	}
 
 	render() {
-		const {
-            value,
-            onChange
-        } = this.props
+		const { value } = this.props
 
 		return (
 			<div className="fmz-slider">
